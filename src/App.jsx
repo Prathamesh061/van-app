@@ -3,7 +3,7 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Vans from "./pages/Vans";
 import VanDetail from "./pages/VanDetail";
-import "./index.css";
+
 import "../server";
 
 export default function App() {
