@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams, Link, Outlet, NavLink } from "react-router-dom";
 
 export default function HostVanDetail() {
@@ -11,9 +11,11 @@ export default function HostVanDetail() {
     color: "#161616",
   };
 
-  fetch(`/api/host/vans/${id}`)
-    .then((res) => res.json())
-    .then((data) => setCurrentVan(data.vans));
+  useEffect(() => {
+    fetch(`/api/host/vans/${id}`)
+      .then((res) => res.json())
+      .then((data) => setCurrentVan(data.vans));
+  }, []);
 
   if (!currentVan) {
     return <h1>Loading...</h1>;
